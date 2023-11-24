@@ -1,0 +1,29 @@
+table {
+    border: 1px solid #ccc;
+    border-collapse: collapse;
+    margin: 0;
+    padding: 0;
+    width: 1000px;
+    table-layout: fixed;
+    background-color: rgb(255, 233, 237);
+}
+
+.td1 {
+    width: 200px;
+}
+
+td {
+    border: 1px solid #ccc;
+    text-align: center;
+    height: 40px;
+}
+
+.tr1 {
+    height: 300px;
+}
+
+.wrapper {
+    position: absolute;
+    top: 30%;
+    left: 27%;
+}

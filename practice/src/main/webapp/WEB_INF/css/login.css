@@ -1,0 +1,26 @@
+.loginWrapper {
+    position: absolute;
+    top: 35%;
+    left: 37%;
+    width: 500px;
+    text-align: center;
+}
+
+#id, #pwd {
+    width: 300px;
+    height: 30px;
+    margin-bottom: 10px;
+    border: none;
+    border-bottom: 1px solid pink;
+}
+
+.loginBtn {
+    margin-bottom: 10px;
+    width: 300px;
+    height: 30px;
+    background-color: pink;
+}
+
+.loginBtn:hover {
+    background-color: rgb(255, 159, 175);
+}

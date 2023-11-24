@@ -1,0 +1,81 @@
+body {
+    margin: 0;
+    padding: 0;
+    
+}
+
+.header {
+    width: 100%;
+    height: 35px;
+    background-color: pink;
+    line-height: 35px;
+    display: flex;
+    justify-content: space-between;
+
+}
+
+.footer {
+    width: 100%;
+    height: 35px;
+    background-color: pink;
+    text-align: center;
+    position: fixed;
+    bottom: 0;
+    line-height: 35px;
+}
+
+.board {
+    margin-left: 48%;
+}
+
+.logout {
+    margin-right: 30px;
+    cursor: pointer;
+}
+
+.logout:hover {
+    color: blueviolet;
+}
+
+.boardWrapper {
+    width: 90%;
+    margin-left: 5%;
+    margin-top: 100px;
+    height: 700px;
+}
+
+.table {
+    margin-top: 10px;
+    width: 100%;
+    border-collapse: collapse;
+    border-top: 1px solid #d0d0d0;
+}
+
+td {
+    border-bottom: 1px solid #d0d0d0;
+    padding: 8px;
+    text-align: center;
+}
+
+th {
+    border-bottom: 1px solid #d0d0d0;
+    padding: 8px;
+    background-color: #ffedee;
+}
+
+.write {
+    margin-top: 20px;
+    text-align: center;
+    box-shadow: 0 2px 4px 0 rgb(211, 211, 211);
+    width: 100px;
+    height: 25px;
+    line-height: 25px;
+    border-radius: 5px;
+    background-color: #ffedee;
+    cursor: pointer;
+    margin-left: 94.3%;
+}
+
+.write:hover {
+    background-color: pink;
+}

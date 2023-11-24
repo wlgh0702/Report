@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./boardWrite.css">
+    <title>Document</title>
+</head>
+<body>
+    <div class="wrapper">
+        <form action="boardWrite" method="post">
+            <input type="text" class="title" name="title" placeholder="제목을 입력해주세요" required maxlength="20">
+            <br><br>
+            <textarea name="content" id="content" cols="98" rows="30" required placeholder="내용을 입력해주세요"></textarea>
+        </form>
+        <button type="submit" class="button">작성하기</button>
+    </div>
+</body>
+</html>

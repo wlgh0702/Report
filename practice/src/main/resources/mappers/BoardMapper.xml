@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.domaji.practice.board.dao.BoardMapper">
+
+    <resultMap id="boardResultMap" type="BoardAndNameDTO">
+        <id property="boardNo" column="BOARD_NO"/>
+        <result property="title" column="TITLE"/>
+        <result property="content" column="CONTENT"/>
+        <result property="regDate" column="REG_DATE"/>
+        <result property="memberNo" column="MEMBER_NO"/>
+        <result property="name" column="NAME"/>
+    </resultMap>
+
+    <insert id="insertBoard" parameterType="HashMap">
+        INSERT
+          INTO BOARD
+        (
+          TITLE
+        , CONTENT
+        , REG_DATE
+        , MEMBER_NO
+        )
+        VALUES
+        (
+          #{title}
+        , #{content}
+        , default
+        , #{memberNo}
+        )
+    </insert>
+
+    <select id="getBoardList" resultMap="boardResultMap">
+        SELECT
+               B.BOARD_NO
+             , B.TITLE
+             , B.CONTENT
+             , B.REG_DATE
+             , B.MEMBER_NO
+             , M.NAME
+          FROM BOARD B
+          JOIN MEMBER M ON (B.MEMBER_NO = M.MEMBER_NO)
+    </select>
+
+    <select id="getBoard" resultMap="boardResultMap">
+        SELECT
+               B.*
+             , M.NAME
+          FROM BOARD B
+          JOIN MEMBER M ON (B.MEMBER_NO = M.MEMBER_NO)
+         WHERE BOARD_NO = #{code}
+    </select>
+</mapper>

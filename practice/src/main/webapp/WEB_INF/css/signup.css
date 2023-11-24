@@ -1,0 +1,31 @@
+.signupWrapper {
+    position: absolute;
+    top: 32%;
+    left: 37%;
+    width: 500px;
+    text-align: center;
+}
+
+.signupBtn {
+    margin-bottom: 10px;
+    width: 300px;
+    height: 30px;
+    background-color: pink;
+}
+
+.signupBtn:hover {
+    background-color: rgb(255, 159, 175);
+}
+
+#id, #pwd, #name, #phone, #email {
+    width: 300px;
+    height: 30px;
+    margin-bottom: 10px;
+    border: none;
+    border-bottom: 1px solid pink;
+    outline: none;
+}
+
+#id:focus, #pwd:focus, #name:focus, #phone:focus, #email:focus {
+    border-bottom: 2px solid rgb(255, 159, 175);
+}

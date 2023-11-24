@@ -1,0 +1,33 @@
+.wrapper {
+    position: absolute;
+    top: 28%;
+    left: 33%;
+}
+
+.title {
+    width: 700px;
+    height: 30px;
+}
+
+#content {
+    resize: none;
+}
+
+.button {
+    background-color: #ffedee;
+    border: none;
+    cursor: pointer;
+    margin-top: 5px;
+    width: 100px;
+    height: 30px;
+    font-size: medium;
+}
+
+.button:hover {
+    background-color: pink;
+}
+
+.title:focus, #content:focus {
+    outline: 2px solid rgb(253, 135, 154);
+    border: none;
+}

@@ -1,0 +1,24 @@
+# server
+server:
+  port: 8888
+
+# jsp
+spring:
+  mvc:
+    view:
+      prefix: /WEB_INF/views/
+      suffix: .jsp
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://localhost:3306/MINIDB?characterEncoding=utf8
+    username: root
+    password: mysql
+
+  # mybatis
+mybatis:
+  mapper-locations: mappers/*Mapper.xml
+#  mapper-locations: com/domaji/practice/configuration/mybatis/*.xml
+  type-aliases-package: com.domaji.practice.member.dto, com.domaji.practice.board.dto
+  configuration:
+    map-underscore-to-camel-case: true
+
