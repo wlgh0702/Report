@@ -1,0 +1,18 @@
+#server
+server:
+  port: 8888
+
+# mybatis
+mybatis:
+  mapper-locations: mappers/*Mapper.xml
+  type-aliases-package: com.domaji.practice.member.dto
+  configuration:
+    map-underscore-to-camel-case: true
+
+#database
+spring:
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://localhost:3306/MINIDB?characterEncoding=utf8
+    username: root
+    password: mysql
