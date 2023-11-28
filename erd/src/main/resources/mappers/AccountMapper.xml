@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.domaji.erd.account.dao.AccountMapper">
+
+    <select id="countAccountNum" parameterType="string">
+        SELECT
+               COUNT(ACCOUNT_NUMBER)
+          FROM TBL_ACCOUNT
+         WHERE ACCOUNT_NUMBER = #{accNum}
+    </select>
+
+    <insert id="insertAccount" parameterType="AccountDTO">
+        INSERT
+          INTO TBL_ACCOUNT
+        (
+          BALANCE
+        , OPENING_DATE
+        , ACCOUNT_STATUS
+        , CUSTOMER_CODE
+        , ACCOUNT_TYPE
+        , ACCOUNT_NUMBER
+        )
+        VALUES
+        (
+          default
+        , default
+        , default
+        , #{customerCode}
+        , #{accountType}
+        , #{accountNumber}
+        )
+    </insert>
+
+    <select id="getSequence" resultType="_int">
+        SELECT
+               MAX(SEQUENCE)
+          FROM SEQ_ACCOUNT
+    </select>
+
+    <select id="myAccount" resultType="accountDTO">
+        SELECT
+               *
+          FROM TBL_ACCOUNT
+         WHERE CUSTOMER_CODE = #{customerCode}
+    </select>
+
+    <select id="getBalance" resultType="_int">
+        SELECT
+               BALANCE
+          FROM TBL_ACCOUNT
+         WHERE ACCOUNT_CODE = #{accountCode}
+    </select>
+
+    <update id="payment" parameterType="HashMap">
+        UPDATE TBL_ACCOUNT
+           SET BALANCE = BALANCE - #{amount}
+         WHERE ACCOUNT_CODE = #{accountCode}
+    </update>
+
+</mapper>

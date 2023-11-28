@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.domaji.erd.savings.dao.SavingsMapper">
+
+    <insert id="insertSavings" parameterType="SavingDTO">
+        INSERT
+          INTO TBL_SAVINGS
+        (
+          SAVINGS_NAME
+        , INTEREST_RATE
+        )
+        VALUES
+        (
+          #{savingsName}
+        , #{interestRate}
+        )
+    </insert>
+
+    <insert id="createSavings" parameterType="SavingsDetailDTO">
+        INSERT
+          INTO TBL_SAVINGS_DETAIL
+        (
+          SAVINGS_AMOUNT
+        , SAVINGS_START_DATE
+        , SAVINGS_EXPIRY_DATE
+        , SAVINGS_STATUS
+        , ACCOUNT_CODE
+        , SAVINGS_CODE
+        )
+        VALUES
+        (
+          #{savingsAmount}
+        , default
+        , default
+        , default
+        , #{accountCode}
+        , #{savingsCode}
+        )
+    </insert>
+</mapper>

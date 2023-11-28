@@ -1,0 +1,29 @@
+### deposit 등록
+POST http://localhost:8888/deposit/insert
+Content-Type: application/json
+Accept: */*
+
+{
+  "depositName": "KB골든라이프연금우대예금"
+, "interestRate": 3.35
+}
+
+### 예금 생성
+POST http://localhost:8888/deposit/create
+Content-Type: application/json
+Accept: */*
+
+{
+  "balance": 15000000,
+  "openingDate": null,
+  "accountStatus": "정상",
+  "customerCode": "CUS7",
+  "accountType": "예금",
+  "accountNumber": "default",
+  "depositAmount": 15000000,
+  "depositStartDate": "default",
+  "depositExpiryDate": "default",
+  "depositStatus": null,
+  "depositCode": "DEP4",
+  "accountCode": null
+}

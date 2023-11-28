@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.domaji.erd.account.dao.TransactionMapper">
+    <insert id="payment" parameterType="TransactionDTO">
+        INSERT
+          INTO TBL_TRANSACTION
+        (
+          TRANSACTION_TYPE
+        , TRANSACTION_AMOUNT
+        , TRANSACTION_DATE
+        , TRANSACTION_DESCRIPT
+        , ACCOUNT_CODE
+        )
+        VALUES
+        (
+          #{transactionType}
+        , #{transactionAmount}
+        , default
+        , #{transactionDescript}
+        , #{accountCode}
+        )
+    </insert>
+</mapper>

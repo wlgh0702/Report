@@ -1,0 +1,22 @@
+### savings 등록
+POST http://localhost:8888/savings/insert
+Content-Type: application/json
+Accept: */*
+
+{
+  "savingsName": "KB가맹점우대적금"
+, "interestRate": 3.5
+}
+
+### 회원이 적금 신청
+POST http://localhost:8888/savings/create
+Content-Type: application/json
+Accept: */*
+
+{
+  "balance": 500000,
+  "customerCode": "CUS5",
+  "accountType": "적금",
+  "savingsAmount": 500000,
+  "savingsCode": "SAV6"
+}

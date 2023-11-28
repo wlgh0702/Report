@@ -1,0 +1,28 @@
+### account 등록
+POST http://localhost:8888/account/insert
+Content-Type: application/json
+Accept: */*
+
+{
+  "balance": null,
+  "openingDate": null,
+  "accountStatus": null,
+  "customerCode": "CUS7",
+  "accountType": "일반계좌",
+  "accountNumber": null
+}
+
+### 내 계좌 불러오기
+GET http://localhost:8888/account/myAccount/CUS5
+Content-Type: application/json
+
+### 결제
+POST http://localhost:8888/account/payment
+Content-Type: application/json
+
+{
+  "transactionType": "출금",
+  "transactionAmount": 300000000,
+  "transactionDescript": "CJ 올리브영",
+  "accountCode": "ACC3"
+}

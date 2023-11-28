@@ -1,0 +1,21 @@
+### customer 등록
+POST http://localhost:8888/customer/insert
+Content-Type: application/json
+Accept: */*
+
+{
+  "customerName" : "홍성민"
+, "gender" : "M"
+, "customerDob" : "950702"
+, "address" : "서울 영등포구"
+, "phone" : "010-1234-1234"
+, "email" : "Hong@gmail.com"
+, "customerRegDate" : null
+, "rrn" : "050702-1342342"
+, "id" : "Hong"
+, "pwd" : "hong123"
+}
+
+### customer List 출력
+GET http://localhost:8888/customer/list
+Accept: */*

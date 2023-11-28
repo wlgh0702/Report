@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.domaji.erd.customer.dao.CustomerMapper">
+
+    <insert id="insertCustomer" parameterType="CustomerDTO">
+        INSERT
+          INTO TBL_CUSTOMER
+        (
+          CUSTOMER_NAME
+        , GENDER
+        , CUSTOMER_DOB
+        , ADDRESS
+        , PHONE
+        , EMAIL
+        , CUSTOMER_REG_DATE
+        , RRN
+        , ID
+        , PWD
+        )
+        VALUES
+        (
+          #{customerName}
+        , #{gender}
+        , #{customerDob}
+        , #{address}
+        , #{phone}
+        , #{email}
+        , default
+        , #{rrn}
+        , #{id}
+        , #{pwd}
+        )
+    </insert>
+
+    <select id="getCustomerList" resultType="CustomerDTO">
+        SELECT
+               *
+          FROM TBL_CUSTOMER
+    </select>
+</mapper>

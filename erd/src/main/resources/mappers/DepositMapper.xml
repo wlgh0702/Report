@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.domaji.erd.deposit.dao.DepositMapper">
+
+    <insert id="insertDeposit" parameterType="DepositDTO">
+        INSERT
+          INTO TBL_DEPOSIT
+        (
+          DEPOSIT_NAME
+        , INTEREST_RATE
+        )
+        VALUES
+        (
+          #{depositName}
+        , #{interestRate}
+        )
+    </insert>
+
+    <insert id="createDeposit" parameterType="DepositDetailDTO">
+        INSERT
+          INTO TBL_DEPOSIT_DETAIL
+        (
+          DEPOSIT_AMOUNT
+        , DEPOSIT_START_DATE
+        , DEPOSIT_EXPIRY_DATE
+        , DEPOSIT_STATUS
+        , DEPOSIT_CODE
+        , ACCOUNT_CODE
+        )
+        VALUES
+        (
+          #{depositAmount}
+        , default
+        , default
+        , default
+        , #{depositCode}
+        , #{accountCode}
+        )
+    </insert>
+</mapper>

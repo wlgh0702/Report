@@ -1,0 +1,27 @@
+### card 등록
+POST http://localhost:8888/card/insert
+Content-Type: application/json
+Accept: */*
+
+{
+  "cardName": "우리동네 체크카드",
+  "annualFee": 0,
+  "cardType": "체크",
+  "benefit": "세탁소/정육점 10% 환급할인,빵집/슈퍼마켓 5% 환급할인,취향거래(번개장터) 5% 환급할인"
+}
+
+### card 목록 조회
+GET http://localhost:8888/card/list
+Content-Type: application/json
+
+### card 발급
+POST http://localhost:8888/card/issuance
+Content-Type: application/json
+Accept: */*
+
+{
+  "accountCode": "ACC3",
+  "customerCode": "CUS5",
+  "cardCode": "CAR5"
+}
+

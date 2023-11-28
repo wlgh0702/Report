@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.domaji.erd.card.dao.CardMapper">
+
+    <insert id="insertCard" parameterType="CardDTO">
+        INSERT
+          INTO TBL_CARD
+        (
+          CARD_NAME
+        , ANNUAL_FEE
+        , CARD_TYPE
+        , BENEFIT
+        )
+        VALUES
+        (
+          #{cardName}
+        , #{annualFee}
+        , #{cardType}
+        , #{benefit}
+        )
+    </insert>
+
+    <select id="cardList" resultType="CardDTO">
+        SELECT
+               *
+          FROM TBL_CARD
+    </select>
+
+    <select id="countCard" resultType="_int">
+        SELECT
+               COUNT(*)
+          FROM TBL_CARD_DETAIL
+         WHERE CARD_NUMBER = #{cardNumber}
+    </select>
+
+    <insert id="issuanceCard" parameterType="CardDetailDTO">
+        INSERT
+          INTO TBL_CARD_DETAIL
+        (
+          CARD_NUMBER
+        , EXPIRATION_DATE
+        , CVC
+        , ISSUANCE_DATE
+        , CARD_STATUS
+        , CREDIT_LIMIT
+        , TOTAL_AMOUNT_USED
+        , PAYMENT_DATE
+        , ACCOUNT_CODE
+        , CUSTOMER_CODE
+        , CARD_CODE
+        )
+        VALUES
+        (
+          #{cardNumber}
+        , default
+        , #{cvc}
+        , default
+        , default
+        , default
+        , default
+        , default
+        , #{accountCode}
+        , #{customerCode}
+        , #{cardCode}
+        )
+    </insert>
+</mapper>
