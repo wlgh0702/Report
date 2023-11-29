@@ -1,0 +1,23 @@
+#server
+server:
+  port: 8888
+
+#mybatis
+mybatis:
+  mapper-locations: mappers/*Mapper.xml
+  type-aliases-package: com.domaji.jwt.member.dto
+  configuration:
+    map-underscore-to-camel-case: true
+
+#database
+spring:
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://localhost:3306/JWT?characterEncoding=utf8
+    username: root
+    password: mysql
+
+#jwt
+## https://8gwifi.org/jwsgen.jsp 에서 HS512 발급
+jwt:
+  secret: nOmi70nNMA6ORMsiQC2035fgrsuguUT0ccrE4mL4HwQyy1abKXUphnEiKkn5Vzg1Bfs9i9k+dq3uO3yFAIE08Q==
