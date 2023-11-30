@@ -1,0 +1,10 @@
+### signup
+POST http://localhost:8888/member/signup
+Content-Type: application/json
+Accept: */*
+
+{
+  "memberId": "wlghsms123",
+  "memberPwd": "12345",
+  "memberName": "박지호"
+}
