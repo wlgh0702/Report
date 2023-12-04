@@ -46,8 +46,9 @@ public class SecurityConfig {
         http.csrf(AbstractHttpConfigurer::disable)
                 .exceptionHandling(exception -> exception.authenticationEntryPoint(jwtAuthenticationEntryPoint)
                         .accessDeniedHandler(jwtAccessDeniedHandler))
-                .authorizeHttpRequests(auth -> auth.requestMatchers("/**").permitAll()
-                        .anyRequest().authenticated())
+                .authorizeHttpRequests(auth -> auth.requestMatchers("/board/**").hasAnyRole("FREE", "CHARGED")
+                        .requestMatchers("/board/detail/**").hasRole("CHARGED")
+                        .anyRequest().permitAll())
 //                .authorizeHttpRequests(auth -> auth
 //                        .anyRequest().permitAll()
 //                        .requestMatchers(HttpMethod.OPTIONS, "/**").permitAll())

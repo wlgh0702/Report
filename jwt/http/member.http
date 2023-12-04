@@ -8,3 +8,13 @@ Accept: */*
   "memberPwd": "12345",
   "memberName": "박지호"
 }
+
+### signin
+POST http://localhost:8888/member/login
+Content-Type: application/json
+Accept: */*
+
+{
+  "memberId": "wlghsms987",
+  "memberPwd": "wlghsms987"
+}

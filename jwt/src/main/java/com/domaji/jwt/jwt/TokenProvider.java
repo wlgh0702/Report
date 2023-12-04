@@ -1,6 +1,7 @@
 package com.domaji.jwt.jwt;
 
 import com.domaji.jwt.exception.TokenException;
+import com.domaji.jwt.member.dto.AuthorityDTO;
 import com.domaji.jwt.member.dto.MemberDTO;
 import com.domaji.jwt.member.dto.MemberRoleDTO;
 import io.jsonwebtoken.*;
@@ -22,7 +23,7 @@ public class TokenProvider {
 
     private static final String AUTHORITIES_KEY = "auth";
     private static final String BEARER_TYPE = "Bearer";     // Bearer 토큰 사용시 앞에 붙이는 prefix 문자열
-    private static final long ACCESS_TOKEN_EXPIRE_TIME = 1000 * 60 * 60;    // 1시간(ms단위)
+    private static final long ACCESS_TOKEN_EXPIRE_TIME = 1000 * 60 ;    // 1시간(ms단위)
     private static final long REFRESH_TOKEN_EXPIRE_TIME = 1000 * 60 * 60 * 24 * 15; // 15일
     private final Key key;
     private final UserDetailsService userDetailsService;
@@ -34,16 +35,27 @@ public class TokenProvider {
         this.userDetailsService = userDetailsService;
     }
 
+    public String accessToken(String refreshToken) {
+        Claims claims = Jwts.parserBuilder().setSigningKey(key).build().parseClaimsJws(refreshToken).getBody();
+        long now = System.currentTimeMillis();
+        Date accessTokenExpiresIn = new Date(now + ACCESS_TOKEN_EXPIRE_TIME);
+
+        String accessToken = Jwts.builder()
+                .setClaims(claims)
+                .setExpiration(accessTokenExpiresIn)
+                .signWith(key, SignatureAlgorithm.HS512)
+                .compact();
+        return accessToken;
+    }
+
     /* 1. 토큰 생성 메소드 */
     public TokenDTO generateTokenDTO(MemberDTO member) {
         List<String> roles = new ArrayList<>();
         for(MemberRoleDTO memberRole : member.getMemberRole()) {
             roles.add(memberRole.getAuthority().getAuthorityName());
         }
-
         /* 1. 회원 아이디를 "sub"라는 클레임으로 토큰에 추가 */
         Claims claims = Jwts.claims().setSubject(member.getMemberId());
-        claims.put("memberCode", member.getMemberCode());
 
         /* 2. 회원의 권한들을 "auth"라는 클레임으로 토큰에 추가 */
         claims.put(AUTHORITIES_KEY, roles);
@@ -64,7 +76,7 @@ public class TokenProvider {
                 .signWith(key, SignatureAlgorithm.HS512)
                 .compact();
 
-        return new TokenDTO(BEARER_TYPE, member.getMemberName(), accessToken, refreshToken, accessTokenExpiresIn.getTime());
+        return new TokenDTO(BEARER_TYPE, member.getMemberCode(), accessToken, refreshToken, accessTokenExpiresIn.getTime());
     }
 
     /* 2. 토큰의 등록된 클레임의 subject에서 해당 회원의 아이디를 추출 */
@@ -89,6 +101,15 @@ public class TokenProvider {
 
         return new UsernamePasswordAuthenticationToken(userDetails, "", userDetails.getAuthorities());
     }
+    public Claims getAuth(String token) {
+        Claims claims = parseClaims(token);
+
+        if(claims.getExpiration().getTime() < System.currentTimeMillis()) {
+            return claims;
+        }
+
+        return null;
+    }
 
     /* 4. 토큰 유효성 검사 */
     public Boolean validateToken(String token) {
@@ -99,7 +120,8 @@ public class TokenProvider {
         } catch (io.jsonwebtoken.security.SecurityException | MalformedJwtException e) {
             throw new TokenException("잘못된 JWT 서명입니다.");
         } catch (ExpiredJwtException e) {
-            throw new TokenException("만료된 JWT 토큰입니다.");
+//            throw new TokenException("만료된 JWT 토큰입니다.");
+            return false;
         } catch (UnsupportedJwtException e) {
             throw new TokenException("지원되지 않는 JWT 토큰입니다.");
         } catch (IllegalArgumentException e) {

@@ -1,6 +1,7 @@
 package com.domaji.jwt.member.service;
 
 
+import com.domaji.jwt.jwt.TokenDTO;
 import com.domaji.jwt.member.dto.MemberDTO;
 
 public interface MemberService {
@@ -8,5 +9,7 @@ public interface MemberService {
 
     Object duplication(String id);
 
-    Object login(MemberDTO member);
+    TokenDTO login(MemberDTO member);
+
+    Object check(String accessToken);
 }

@@ -39,4 +39,63 @@
           FROM TBL_MEMBER
          WHERE MEMBER_ID = #{memberId}
     </select>
+
+    <select id="getSequence" resultType="_int">
+        SELECT
+               MAX(MEMBER_CODE)
+          FROM TBL_MEMBER
+    </select>
+
+    <insert id="insertAuth" parameterType="_int">
+        INSERT
+          INTO TBL_AUTH_LIST
+        (
+          MEMBER_CODE
+        , AUTHORITY_CODE
+        )
+        VALUES
+        (
+          #{memberCode}
+        , #{auth}
+        )
+    </insert>
+
+    <select id="getAuthList" parameterType="_int">
+        SELECT
+               *
+          FROM TBL_AUTH_LIST
+         WHERE MEMBER_CODE = #{memberCode}
+    </select>
+
+    <select id="findAuth" parameterType="_int">
+        SELECT
+               *
+          FROM TBL_MEM_AUTH
+         WHERE AUTHORITY_CODE = #{authCode}
+    </select>
+
+    <update id="refreshToken" parameterType="HashMap">
+        update TBL_MEMBER
+           set REFRESH_TOKEN = #{refreshToken}
+         where MEMBER_CODE = #{memberCode}
+    </update>
+
+    <select id="check" parameterType="string">
+        SELECT
+               COUNT(*)
+          FROM TBL_MEMBER
+         WHERE REFRESH_TOKEN = #{accessToken}
+    </select>
+    <select id="findMemberByMemberId" resultType="MemberDTO">
+        SELECT
+               *
+          FROM TBL_MEMBER
+         WHERE MEMBER_ID = #{memberId}
+    </select>
+    <select id="findToken" parameterType="string">
+        SELECT
+               REFRESH_TOKEN
+          FROM TBL_MEMBER
+         WHERE MEMBER_ID = #{memberId}
+    </select>
 </mapper>

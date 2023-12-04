@@ -9,7 +9,7 @@ import lombok.*;
 @ToString
 public class AuthorityDTO {
 
-    private String authorityCode;
+    private int authorityCode;
     private String authorityName;
     private String authorityDesc;
 }

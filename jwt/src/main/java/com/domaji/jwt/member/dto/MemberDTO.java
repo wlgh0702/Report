@@ -1,5 +1,6 @@
 package com.domaji.jwt.member.dto;
 
+import com.fasterxml.jackson.annotation.JsonAutoDetect;
 import lombok.*;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
@@ -7,14 +8,15 @@ import org.springframework.security.core.userdetails.UserDetails;
 import java.util.Collection;
 import java.util.List;
 
-@NoArgsConstructor
 @AllArgsConstructor
+@NoArgsConstructor
 @Setter
 @Getter
 @ToString
+@JsonAutoDetect
 public class MemberDTO implements UserDetails {
 
-    private String memberCode;
+    private int memberCode;
     private String memberId;
     private String memberPwd;
     private String memberName;
