@@ -1,0 +1,22 @@
+#server
+server:
+  port: 8888
+
+#database
+spring:
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://localhost:3306/JWT?characterEncoding=utf8
+    username: root
+    password: mysql
+  jpa:
+    generate-ddl: false
+    show-sql: true
+    database: mysql
+    properties:
+      hibernate:
+        '[format_sql]': true
+
+#jwt
+jwt:
+  secret: 7wOFc4Eb1zub6S0PL4nCoQ0Jz8OlOvAOkvPE8XA0F5e9TuqUdwdbPMboC4mg5d+gZTZ4foRQOo/U++yFIlwg2Q==
