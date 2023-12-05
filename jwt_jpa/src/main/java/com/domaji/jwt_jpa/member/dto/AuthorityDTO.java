@@ -2,8 +2,8 @@ package com.domaji.jwt_jpa.member.dto;
 
 import lombok.*;
 
-@NoArgsConstructor
 @AllArgsConstructor
+@NoArgsConstructor
 @Setter
 @Getter
 @ToString

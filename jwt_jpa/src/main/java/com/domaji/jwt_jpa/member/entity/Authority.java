@@ -7,13 +7,13 @@ import jakarta.persistence.Table;
 import lombok.*;
 
 @Entity
-@Table(name = "TBL_MEM_AUTH")
-@NoArgsConstructor
+@Table(name = "TBL_AUTHORITY")
 @AllArgsConstructor
+@NoArgsConstructor
 @Setter
 @Getter
 @ToString
-public class MemberRole {
+public class Authority {
 
     @Id
     @Column(name = "AUTHORITY_CODE")
