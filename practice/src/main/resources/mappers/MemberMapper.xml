@@ -15,7 +15,7 @@
 
     <insert id="insertMember" parameterType="HashMap">
         INSERT
-          INTO MEMBER
+          INTO TBL_MEMBER
         (
           ID
         , PWD
@@ -36,14 +36,14 @@
     <select id="getMember" resultMap="memberResultMap">
         SELECT
                *
-          FROM MEMBER
+          FROM TBL_MEMBER
          WHERE ID = #{id}
     </select>
 
     <select id="duplication" resultType="_int">
         SELECT
                COUNT(*)
-          FROM MEMBER
+          FROM TBL_MEMBER
          WHERE ID = #{id}
     </select>
 </mapper>

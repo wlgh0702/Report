@@ -40,7 +40,7 @@
              , B.MEMBER_NO
              , M.NAME
           FROM BOARD B
-          JOIN MEMBER M ON (B.MEMBER_NO = M.MEMBER_NO)
+          JOIN TBL_MEMBER M ON (B.MEMBER_NO = M.MEMBER_NO)
     </select>
 
     <select id="getBoard" resultMap="boardResultMap">
@@ -48,7 +48,7 @@
                B.*
              , M.NAME
           FROM BOARD B
-          JOIN MEMBER M ON (B.MEMBER_NO = M.MEMBER_NO)
+          JOIN TBL_MEMBER M ON (B.MEMBER_NO = M.MEMBER_NO)
          WHERE BOARD_NO = #{code}
     </select>
 </mapper>
