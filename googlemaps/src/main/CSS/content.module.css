@@ -1,0 +1,46 @@
+@import url('https://fonts.googleapis.com/css2?family=Gothic+A1:wght@300&display=swap');
+
+body {
+    font-family: 'Gothic A1', sans-serif;
+}
+
+.wrapper {
+    padding: 100px 0px;
+    height: 66.3vh;
+}
+
+.image {
+    width: 100vw;
+    height: 500px;
+    background-image: url("../../common/Images/pedro-lastra-5g8dJvtYRYA-unsplash.jpg");
+}
+
+.midText {
+    color: white;
+    font-weight: 600;
+    position: relative;
+    font-size: 3em;
+    width: 700px;
+    text-align: center;
+    left: 960px;
+    margin-left: -350px;
+    top: 30%;
+}
+
+.bottom {
+    padding: 100px 400px;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-column-gap: 312px;
+}
+
+.botText {
+    font-size: 1.5em;
+    width: 400px;
+    text-align: center;
+    height: 65px;
+    line-height: 65px;
+    background: #6c6c9a;
+    color: whitesmoke;
+    border-radius: 20px;
+}

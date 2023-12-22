@@ -1,0 +1,45 @@
+@import url('https://fonts.googleapis.com/css2?family=Gothic+A1:wght@300&display=swap');
+
+body {
+    margin: 0;
+    padding: 0;
+    font-family: 'Gothic A1', sans-serif;
+    overflow-x: hidden;
+}
+
+.headerWrapper {
+    height: 70px;
+    width: 100vw;
+    border-bottom: 1px solid #dbdbdb;
+    padding: 0px 400px;
+}
+
+.menu {
+    display: flex;
+    justify-content: space-between;
+    width: 1000px;
+    /*background: aquamarine;*/
+    height: 100%;
+    line-height: 65px;
+}
+
+.pageName {
+    font-size: 1.8em;
+    font-weight: bold;
+    cursor: pointer;
+    text-decoration: none;
+    color: black;
+}
+
+.international, .season, .board {
+    font-size: 1.2em;
+    line-height: 70px;
+    cursor: pointer;
+    font-weight: 600;
+    text-decoration: none;
+    color: black;
+}
+
+.pageName:hover, .international:hover, .season:hover, .board:hover {
+    color: #0096c7;
+}

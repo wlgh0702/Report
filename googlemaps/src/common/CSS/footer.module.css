@@ -1,0 +1,13 @@
+@import url('https://fonts.googleapis.com/css2?family=Gothic+A1:wght@300&display=swap');
+
+body {
+    font-family: 'Gothic A1', sans-serif;
+}
+
+.foot {
+    width: 1920px;
+    height: 50px;
+    text-align: center;
+    line-height: 50px;
+    border-top: 1px solid #eeeeee;
+}
